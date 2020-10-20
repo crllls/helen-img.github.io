@@ -87,20 +87,18 @@
   <!--==========================
     Intro Section
   ============================-->
-  <section id="intro" class="clearfix tm-parallax">
-    <div class="container d-flex h-100 ">
-      <div class="row justify-content-center align-self-center cd-intro-content bouncy">
-        <div class="col-md-6 intro-info order-md-first order-last" style="z-index: 1;">
-          <!-- <h2>Rapid Solutions<br>for Your <span>Business!</span></h2> -->
-          <h2><span>KAISER&nbsp;INTERNATIONAL</span>
-          <p style="font-size: x-large;">The&nbsp;First&nbsp;Name&nbsp;in&nbsp;Healthcare</p>
-          </h2>
-          <div class="action-wrapper">
-            <a href="#about" class="btn-get-started scrollto main-action">Get Started</a>
+  <section id="intro" class="clearfix">
+    <div class="container d-flex h-100">
+      <div class="row justify-content-center align-self-center">
+        <div class="col-md-6 intro-info order-md-first order-last">
+          <h2>Kaiser International <br><span>The 1st in Healthcare</span></h2>
+          <div>
+            <a href="#about" class="btn-get-started scrollto">Get Started</a>
           </div>
         </div>
+  
         <div class="col-md-6 intro-img order-md-last order-first">
-          <img src="img/teamwork-intro.svg" alt="" class="img-fluid" style="opacity: 0.9;">
+          <img src="img/teamwork-intro.svg" alt="" class="img-fluid">
         </div>
       </div>
 
@@ -1086,81 +1084,6 @@
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
   <script src="js/crls-script.js"></script>
-
-
-  <script>
-
-    function getOffSet(){
-      var _offset = 450;
-      var windowHeight = window.innerHeight;
-
-      if(windowHeight > 500) {
-        _offset = 400;
-      } 
-      if(windowHeight > 680) {
-        _offset = 300
-      }
-      if(windowHeight > 830) {
-        _offset = 210;
-      }
-
-      return _offset;
-    }
-
-    function setParallaxPosition($doc, multiplier, $object){
-      var offset = getOffSet();
-      var from_top = $doc.scrollTop(),
-        bg_css = 'center ' +(multiplier * from_top - offset) + 'px';
-      $object.css({"background-position" : bg_css });
-    }
-
-    // Parallax function
-    // Adapted based on https://codepen.io/roborich/pen/wpAsm        
-    var background_image_parallax = function($object, multiplier, forceSet){
-      multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.3;
-      multiplier = 1 - multiplier;
-      var $doc = $(document);
-      // $object.css({"background-attatchment" : "fixed"});
-
-      if(forceSet) {
-        setParallaxPosition($doc, multiplier, $object);
-      } else {
-        $(window).scroll(function(){          
-          setParallaxPosition($doc, multiplier, $object);
-        });
-      }
-    };
-
-    var background_image_parallax_2 = function($object, multiplier){
-      multiplier = typeof multiplier !== 'undefined' ? multiplier : 0.3;
-      multiplier = 1 - multiplier;
-      var $doc = $(document);
-      $object.css({"background-attachment" : "fixed"});
-      $(window).scroll(function(){
-        var firstTop = $object.offset().top,
-            pos = $(window).scrollTop(),
-            yPos = Math.round((multiplier * (firstTop - pos)) - 186);              
-
-        var bg_css = 'center ' + yPos + 'px';
-
-        $object.css({"background-position" : bg_css });
-      });
-    };
-    
-    $(function(){
-      // Hero Section - Background Parallax
-      background_image_parallax($(".tm-parallax"), 0.30, false);
-      background_image_parallax_2($("#contact"), 0.80);   
-      
-      // Handle window resize
-      window.addEventListener('resize', function(){
-        background_image_parallax($(".tm-parallax"), 0.30, true);
-      }, true);
-      
-    });
-
-
-  </script>
 
 </body>
 </html>
